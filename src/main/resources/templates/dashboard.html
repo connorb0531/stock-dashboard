@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <form th:action="@{/dashboard}" method="get">
+        <input name="symbol" placeholder="Stock Symbol" />
+        <button type="submit">Search</button>
+    </form>
+
+    <div th:if="${quote != null}">
+        <p>
+            <span th:text="${symbol}"></span>
+            : $<span th:text="${quote.price}"></span>
+        </p>
+    </div>
+
+    <div th:if="${error != null}" th:text="${error}"></div>
+
+</body>
+
+</html>

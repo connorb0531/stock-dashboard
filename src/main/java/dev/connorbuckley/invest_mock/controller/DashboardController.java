@@ -21,7 +21,7 @@ public class DashboardController {
     @GetMapping
     public String dashboard(@RequestParam(required = false) String symbol, Model model) {
         if (symbol == null || symbol.isBlank()) {
-            return "index";
+            return "dashboard";
         }
 
         try {
@@ -36,7 +36,7 @@ public class DashboardController {
             model.addAttribute("error", "Count not find symbol: " + symbol);
         }
 
-        return "index";
+        return "dashboard";
     }
 
 }

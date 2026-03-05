@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Invest Mock'">Invest Mock</title>
 </head>
-    <body>
-        <form th:action="@{/dashboard}" method="get">
-        <input name="symbol" placeholder="Stock Symbol" />
-        <button type="submit">Search</button>
-        </form>
 
-        <div th:if="${quote != null}">
-        <p>
-            <span th:text="${symbol}"></span> 
-            : $<span th:text="${quote.price}"></span>
-        </p>
-        </div>
+<body>
 
-        <div th:if="${error != null}" th:text="${error}"></div>
-    </body>
+    <header>
+        <h1>Invest Mock</h1>
+
+        <nav>
+            <a th:href="@{/dashboard}">Dashboard</a> |
+            <a th:href="@{/users}">Users</a> |
+            <a th:href="@{/account}">Account</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+    </main>
+
+    <footer>
+        <hr>
+        <p>Mock trading platform built with Spring Boot</p>
+    </footer>
+
+</body>
+
 </html>
