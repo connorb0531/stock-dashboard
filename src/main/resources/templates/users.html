@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Users</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <form th:action="@{/users}" method="post">
+        <input name="username" placeholder="username" />
+        <input type="password" name="password" placeholder="password" />
+        <button type="submit">create</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Cash Balance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.cashBalance}"></td>
+                <td>
+                    <form th:action="@{/users/delete/{id}(id=${user.id})}" method="post">
+                        <button type="submit">delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${error != null}" th:text="${error}"></div>
+
+</body>
+
+</html>
