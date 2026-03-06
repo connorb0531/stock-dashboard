@@ -4,6 +4,8 @@ A simple mock stock trading dashboard built with Spring Boot, Thymeleaf, and Web
 
 ## Setup
 
+#### **Requires JDK 21+**
+
 ### 1. Clone the repository
 
 ```
@@ -16,24 +18,15 @@ cd invest-mock
 Create a free API key at:
 https://finnhub.io/
 
-### 3. Set environment variable
-
-
+### 3. Set environment variables
 
 ```
-API_KEY=your_api_key_here
+API_KEY
+ADMIN_USERNAME
+ADMIN_PASSWORD
 ```
 
-### 4. Configure application properties
-
-`src/main/resources/application.properties`
-
-```
-api.key=${API_KEY}
-api.base.url=https://finnhub.io/api/v1
-```
-
-### 5. Run the application
+### 4. Run the application
 
 Using Maven wrapper:
 
@@ -41,7 +34,7 @@ Using Maven wrapper:
 ./mvnw spring-boot:run
 ```
 
-### 6. Open the dashboard
+### 5. Open the dashboard
 
 Navigate to:
 
@@ -49,7 +42,6 @@ Navigate to:
 http://localhost:8080/
 ```
 
-Search for a stock symbol (example: `AAPL`).
 
 ## Notes
 
@@ -57,5 +49,4 @@ Search for a stock symbol (example: `AAPL`).
 - Future plans include:
   - portfolio tracking
   - mock buy/sell trades
-  - persistent storage
   - improved UI dashboard
