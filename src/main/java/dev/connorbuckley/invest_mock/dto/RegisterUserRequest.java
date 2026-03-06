@@ -1,6 +1,6 @@
 package dev.connorbuckley.invest_mock.dto;
 
-public record CreateUserRequest (
+public record RegisterUserRequest(
     String username,
     String password
-){}
+) {}

@@ -10,8 +10,12 @@
 
     </div>
     <form th:action="@{/users}" method="post">
-        <input name="username" placeholder="username" />
-        <input type="password" name="password" placeholder="password" />
+        <input name="username" placeholder="username" required/>
+        <input type="password" name="password" placeholder="password" required/>
+        <select name="role">
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+        </select>
         <button type="submit">create</button>
     </form>
     <table>
