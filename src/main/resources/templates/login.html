@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Invest Mock</title>
+</head>
+
+<body>
+    <header>
+        <h1>Invest Mock</h1>
+        <nav>
+            <a th:href="@{/}">Home</a> |
+            <a th:href="@{/auth/signup}">Sign Up</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h2>Log In</h2>
+        <form th:action="@{/auth/login}" method="post">
+            <div>
+                <input name="username" placeholder="Username" required />
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required />
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a th:href="@{/auth/signup}">Sign up</a></p>
+        <div th:if="${error}" th:text="${error}" style="color: red;"></div>
+    </main>
+
+    <hr>
+    <footer>
+        <p>Mock trading platform built with Spring Boot</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <header th:fragment="nav">
+        <h1>Invest Mock</h1>
+        <nav>
+            <a th:href="@{/}">Home</a> |
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <th:block th:if="${isAdmin}"> | <a th:href="@{/users}">Users</a></th:block> |
+            <form th:action="@{/auth/logout}" method="post" style="display: inline;">
+                <button type="submit">Log Out</button>
+            </form>
+        </nav>
+    </header>
+</body>
+
+</html>

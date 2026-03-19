@@ -6,7 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import dev.connorbuckley.invest_mock.dto.AdminCreateUserRequest;
-import dev.connorbuckley.invest_mock.dto.RegisterUserRequest;
+import dev.connorbuckley.invest_mock.dto.AuthUserRequest;
 import dev.connorbuckley.invest_mock.dto.UserResponse;
 import dev.connorbuckley.invest_mock.entity.Account;
 import dev.connorbuckley.invest_mock.entity.User;
@@ -24,7 +24,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public UserResponse registerUser(RegisterUserRequest request) throws UsernameAlreadyExistsException {
+    public UserResponse registerUser(AuthUserRequest request) throws UsernameAlreadyExistsException {
         return createUserInternal(
             request.username(),
             request.password(),

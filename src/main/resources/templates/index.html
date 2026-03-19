@@ -8,15 +8,7 @@
 
 <body>
 
-    <header>
-        <h1>Invest Mock</h1>
-
-        <nav>
-            <a th:href="@{/dashboard}">Dashboard</a> |
-            <a th:href="@{/users}">Users</a> |
-            <a th:href="@{/account}">Account</a>
-        </nav>
-    </header>
+    <header th:replace="~{fragments :: nav}"></header>
 
     <hr>
 

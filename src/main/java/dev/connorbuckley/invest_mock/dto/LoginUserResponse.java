@@ -1,6 +1,6 @@
 package dev.connorbuckley.invest_mock.dto;
 
-public record RegisterUserRequest(
+public record LoginUserResponse(
     String username,
-    String password
+    String token
 ) {}

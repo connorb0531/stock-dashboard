@@ -6,9 +6,9 @@
 </head>
 
 <body>
-    <div>
+    <header th:replace="~{fragments :: nav}"></header>
+    <hr>
 
-    </div>
     <form th:action="@{/users}" method="post">
         <input name="username" placeholder="username" required/>
         <input type="password" name="password" placeholder="password" required/>
