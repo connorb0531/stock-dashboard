@@ -1,5 +1,7 @@
 package dev.connorbuckley.invest_mock.controller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import dev.connorbuckley.invest_mock.dto.QuoteResponse;
+import dev.connorbuckley.invest_mock.exception.InvalidSymbolException;
 import dev.connorbuckley.invest_mock.service.StockService;
 
 @Controller
@@ -25,15 +28,19 @@ public class DashboardController {
         }
 
         try {
-            QuoteResponse quote = stockService.getQuote(symbol);
-            
             symbol = symbol.trim().toUpperCase();
+            Map<String, QuoteResponse> quoteMap = stockService.getQuote(symbol);
+            QuoteResponse quote = quoteMap.get(symbol);
 
             model.addAttribute("symbol", symbol);
             model.addAttribute("quote", quote);       
-        } catch (Exception e) {
+        } 
+        catch (InvalidSymbolException e) {
+            model.addAttribute("error", e.getMessage());
+        }
+        catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("error", "Count not find symbol: " + symbol);
+            model.addAttribute("error", e.getMessage());
         }
 
         return "dashboard";

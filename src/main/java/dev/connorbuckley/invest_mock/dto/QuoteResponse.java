@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record QuoteResponse(
     @JsonProperty("c") double price,
-    @JsonProperty("d") double change,
-    @JsonProperty("dp") double percentChange,
+    @JsonProperty("d") Double change,
+    @JsonProperty("dp") Double percentChange,
     @JsonProperty("h") double high,
     @JsonProperty("l") double low,
     @JsonProperty("o") double open,
