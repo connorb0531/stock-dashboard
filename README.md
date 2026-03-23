@@ -24,6 +24,7 @@ https://finnhub.io/
 API_KEY
 ADMIN_USERNAME
 ADMIN_PASSWORD
+JWT_KEY=your-secret-key-at-least-32-chars-long
 ```
 
 ### 4. Run the application
@@ -41,6 +42,10 @@ Navigate to:
 ```
 http://localhost:8080/
 ```
+### 6. Auth flow
+- /auth/signup: create an account with username and password
+- /auth/login: enter credentials. On success, a JWT is stored in an HttpOnly cookie
+- Admin users: The user created with ADMIN_USERNAME and ADMIN_PASSWORD has admin rights and can access /users to manage accounts.
 
 
 ## Notes
